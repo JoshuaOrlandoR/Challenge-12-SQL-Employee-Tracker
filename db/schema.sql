@@ -5,7 +5,7 @@ USE employees_db;
 
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    name VARCHAR(30) NULL,
+    name VARCHAR(30) NULL
 );
 
 CREATE TABLE role (
@@ -13,6 +13,9 @@ CREATE TABLE role (
     title VARCHAR(30) NULL,
     salary DECIMAL(10.3) NULL, --To my understanding, accepts decimal numbers with 10 total digits, 3 digits after the decimal --
     department_id INT NULL,
+    FOREIGN KEY (department_id),
+    REFERENCES department(id)
+
 );
 
 CREATE TABLE employee (
@@ -22,6 +25,6 @@ CREATE TABLE employee (
     role_id INT NULL, 
     FOREIGN KEY (role_id),
     REFERENCES role(id),
-    manager_id INT NULL,
+    manager_id INT NULL
 );
 
