@@ -23,7 +23,13 @@
   To install this application, users will download this repository from Github. Users can unzip the folder where they see fit.
 
   ## Useage
-  Once downloaded, users should open the application with any code space of their choice, such as Visual Studio Code. Open an integrated terminal in the working repository. Type npm init -y to update the package.json. Type npm i to install all required dependecies (these being inquirer, mysql2, and console.table). Once this is done, users must ensure they have MySQL login credentials on their machine, as they will need a username (which will often be root) and a password. In the terminal, type mysql -u root -p. Enter your password. If you successfully log  into MySQL, please go to the server.js file and replace the * in the quotation marks with your password. After this, users can exit the MySQL shell by typing exit. In the terminal, type npm start to begin prompts and navigate the databases. 
+* Once downloaded, users should open the application with any code space of their choice, such as Visual Studio Code. Open an integrated terminal in the working repository.
+  
+* Type npm init -y to update the package.json. Type npm i to install all required dependecies (these being inquirer, mysql2, and console.table). Once this is done, users must ensure they have MySQL login credentials on their machine, as they will need a username (which will often be root) and a password. 
+
+* In the terminal, type mysql -u root -p. Enter your password. If you successfully log  into MySQL, please go to the server.js file and replace the * in the quotation marks with your password. 
+
+* After this, users can exit the MySQL shell by typing exit. In the terminal, type npm start to begin prompts and navigate the databases. 
 
   ## License 
   

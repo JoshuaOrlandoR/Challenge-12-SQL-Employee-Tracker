@@ -8,7 +8,7 @@ const db = mysql.createConnection (
     {
         host: 'localhost',
         user: 'root',
-        password: '*', // REMEMBER TO PUT THIS BACK TO NEW PW AFTER CHANGE WHEN TESTING
+        password: 'firehousewater7753', // REMEMBER TO PUT THIS BACK TO NEW PW AFTER CHANGE WHEN TESTING
         database: 'employees_db'
     }
 );
@@ -229,10 +229,10 @@ const addRole = () => {
 const updateEmployeeRole = () => {
     db.query('SELECT * FROM employee', (err, employees) => {
         if (err) console.log(err);
-        employees = employee.map((employee) => {
+        employees = employees.map((employee) => {
             return {
                 name: `${employee.first_name} ${employee.last_name}`,
-                value: empoloyee.id,
+                value: employee.id,
             };
         });
         db.query('SELECT * FROM role', (err, roles) => {
