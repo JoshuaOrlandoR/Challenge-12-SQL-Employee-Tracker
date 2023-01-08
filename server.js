@@ -8,9 +8,9 @@ const db = mysql.createConnection (
     {
         host: 'localhost',
         user: 'root',
-        password: '', //IMPORTANT NOTE FOR SELF! Include mysql password here when testing application but REMOVE IT before pushing to github!
+        password: 'firehousewater7753', //IMPORTANT NOTE FOR SELF! Include mysql password here when testing application but REMOVE IT before pushing to github!
         database: 'employees_db', 
-        port: 3001
+        port: 3001,
     }
 );
 
@@ -31,15 +31,11 @@ const startPrompts =() => {
     choices: [
         "View Employee List", 
         "Add an Employee",
-        "Remove an Employee", //Can't get to work - save for last
         "View Departments", 
         "Add a Department",
-        "Remove a Department", //Can't get to work - save for last 
         "View Role List", 
         "Add a Role",
-        "Remove a Role", //Can't get to work - save for last
         "Update an Employee's Role",
-        "View Employees by Department",
         "Close"
     ]
     
@@ -55,10 +51,6 @@ const startPrompts =() => {
             addEmployee();
         }
 
-        // if (choices === "Remove an Employee") {
-        //     removeEmployee();
-        // }
-
         if (choices === "View Departments") {
             viewDepartmentList();
         }
@@ -66,10 +58,6 @@ const startPrompts =() => {
         if (choices === "Add a Department") {
             addDepartment();
         }
-
-        // if (choices === "Remove a Department") {
-        //     removeDepartment();
-        // }
 
         if (choices === "View Role List") {
             viewRoleList();
@@ -79,16 +67,8 @@ const startPrompts =() => {
             addRole();
         }
 
-        // if (choices === "Remove a Role") {
-        //     removeRole();
-        // }
-
         if (choices === "Update an Employee's Role") {
             updateEmployeeRole();
-        }
-
-        if (choices === "View Employees by Department") {
-            filterEmployeeByDepartment();
         }
 
         if (choices === "Close") {
@@ -243,6 +223,59 @@ const addRole = () => {
         );
         console.log("New role added!")
         viewRoleList();
+        });
+    });
+};
+
+const updateEmployeeRole = () => {
+    db.query('SELECT * FROM employee', (err, employees) => {
+        if (err) console.log(err);
+        employees = employee.map((employee) => {
+            return {
+                name: `${employee.first_name} ${employee.last_name}`,
+                value: empoloyee.id,
+            };
+        });
+        db.query('SELECT * FROM role', (err, roles) => {
+            if (err) console.log(err);
+            roles = roles.map((role) => {
+                return {
+                    name: role.title,
+                    value: role.id,
+                }
+            });
+            inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'currentEmployee',
+                    message: 'Choose which employee info you would like to update!',
+                    choices: employees
+                },
+                {
+                    type: 'list',
+                    name: 'chooseNewRole',
+                    message: 'Choose the new role for this employee!',
+                    choices: roles
+                },
+            ])
+            .then((data) => {
+                db.query('UPDATE employee SET ? WHERE ?',
+                [
+                    {
+                        role_id: data.chooseNewRole
+                    },
+                    {
+                        id: data.currentEmployee
+                    },
+                ],
+                function (err) {
+                    if (err) throw err;
+                }
+                );
+                console.log ('Employee role updated!');
+                viewRoleList();
+                viewEmployeeList();
+            });
         });
     });
 };
