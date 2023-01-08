@@ -8,9 +8,8 @@ const db = mysql.createConnection (
     {
         host: 'localhost',
         user: 'root',
-        password: 'firehousewater7753', //IMPORTANT NOTE FOR SELF! Include mysql password here when testing application but REMOVE IT before pushing to github!
-        database: 'employees_db', 
-        port: 3001,
+        password: '*', // REMEMBER TO PUT THIS BACK TO NEW PW AFTER CHANGE WHEN TESTING
+        database: 'employees_db'
     }
 );
 
@@ -25,8 +24,8 @@ db.connect(function (err) {
 const startPrompts =() => {
     inquirer.prompt(
     {
-    type: "list",
     name: "intro",
+    type: "list",
     message: "Hello! Welcome to the Employee Tracker Program! What would you like to start with?",
     choices: [
         "View Employee List", 
@@ -37,41 +36,41 @@ const startPrompts =() => {
         "Add a Role",
         "Update an Employee's Role",
         "Close"
-    ]
+    ],
     
     })
     .then((response) => {
-        const {choices} = response;
+        const {intro} = response;
 
-        if (choices === "View Employee List") {
+        if (intro === "View Employee List") {
             viewEmployeeList();
         }
 
-        if (choices === "Add an Employee") {
+        if (intro === "Add an Employee") {
             addEmployee();
         }
 
-        if (choices === "View Departments") {
+        if (intro === "View Departments") {
             viewDepartmentList();
         }
 
-        if (choices === "Add a Department") {
+        if (intro === "Add a Department") {
             addDepartment();
         }
 
-        if (choices === "View Role List") {
+        if (intro === "View Role List") {
             viewRoleList();
         }
 
-        if (choices === "Add a Role") {
+        if (intro === "Add a Role") {
             addRole();
         }
 
-        if (choices === "Update an Employee's Role") {
+        if (intro === "Update an Employee's Role") {
             updateEmployeeRole();
         }
 
-        if (choices === "Close") {
+        if (intro === "Close") {
             console.log("Thank you for using this Employee Tracker App! Your connection will now end for this session.")
             db.end();
         }

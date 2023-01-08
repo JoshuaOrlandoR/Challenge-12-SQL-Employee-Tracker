@@ -5,18 +5,19 @@ USE employees_db;
 
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (id), 
-    name VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NULL,
     salary DECIMAL NOT NULL, 
     department_id INT NOT NULL,
     FOREIGN KEY (department_id) REFERENCES department(id),
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
+
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
