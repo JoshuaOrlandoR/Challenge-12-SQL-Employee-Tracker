@@ -40,6 +40,33 @@
 
   ## Tests 
   WALKTHROUGH VIDEO 
+  <br>
+  https://drive.google.com/file/d/1futOAda6Zzi77eyJcdZDkKEKJUkS1D-p/view
+  <br>
+  Main Prompts 
+  <br>
+  ![image](https://user-images.githubusercontent.com/114437149/211226701-b35cc8ea-e6a7-46fb-bad2-5cb414b13c7e.png)
+  <br>
+  Employee List 
+  <br>
+  ![image](https://user-images.githubusercontent.com/114437149/211226753-480a2c27-453c-428a-bce8-da227e82f1db.png)
+  <br>
+  Role List
+  <br>
+  ![image](https://user-images.githubusercontent.com/114437149/211226793-c32c7104-212e-4567-a238-bb4ae5134252.png)
+  <br>
+  Department List
+  <br>
+  ![image](https://user-images.githubusercontent.com/114437149/211226823-a2013bd7-c0b1-4a49-8f84-65630d5dc455.png)
+  <br>
+  Adding a department example 
+  <br>
+  ![image](https://user-images.githubusercontent.com/114437149/211226848-950aa76d-0907-40a4-a561-7cce4e31caa2.png)
+
+
+  
+
+
 
   ## Questions 
   Thank you for your interest in my application, MySQL Employee Tracker! 
