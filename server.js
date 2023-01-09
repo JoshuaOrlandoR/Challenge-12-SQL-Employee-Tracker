@@ -8,7 +8,7 @@ const db = mysql.createConnection (
     {
         host: 'localhost',
         user: 'root',
-        password: 'firehousewater7753', // REMEMBER TO PUT THIS BACK TO NEW PW AFTER CHANGE WHEN TESTING
+        password: '*', // REMEMBER TO PUT THIS BACK TO NEW PW AFTER CHANGE WHEN TESTING
         database: 'employees_db'
     }
 );
