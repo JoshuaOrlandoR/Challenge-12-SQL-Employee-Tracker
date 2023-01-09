@@ -146,7 +146,7 @@ const viewDepartmentList = () => {
     const query = 'SELECT * FROM department';
     db.query(query, (err,res) => {
         if (err) throw err;
-        consolel.table(res);
+        console.table(res);
     })
     startPrompts();
 };
